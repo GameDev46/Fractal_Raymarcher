@@ -1,24 +1,4 @@
-/*
-
- _____                         ______                 ___   ____ 
-|  __ \                        |  _  \               /   | / ___|
-| |  \/  __ _  _ __ ___    ___ | | | |  ___ __   __ / /| |/ /___ 
-| | __  / _` || '_ ` _ \  / _ \| | | | / _ \\ \ / // /_| || ___ \
-| |_\ \| (_| || | | | | ||  __/| |/ / |  __/ \ V / \___  || \_/ |
- \____/ \__,_||_| |_| |_| \___||___/   \___|  \_/      |_/\_____/
-
-
-*/
-
-/* 
-	AUTHOR: GameDev46
-
-	Youtube: https://www.youtube.com/@gamedev46
-	Github: https://github.com/GameDev46
-*/
-
 const canvas = document.querySelector("#shader");
-
 canvas.requestPointerLock = canvas.requestPointerLock || canvas.mozRequestPointerLock;
 
 document.exitPointerLock = document.exitPointerLock || document.mozExitPointerLock;
@@ -112,21 +92,15 @@ canvas.onclick = function() {
 }
 
 function lockChangeAlert() {
-
 	if (document.pointerLockElement === canvas ||
 		document.mozPointerLockElement === canvas) {
-
 		document.addEventListener("mousemove", getMouseMovement, false);
-
 	} else {
-
 		document.removeEventListener("mousemove", getMouseMovement, false);
-
 	}
 }
 
 function getMouseMovement(e) {
-
 	let movementX = e.movementX || e.mozMovementX || 0;
 	let movementY = e.movementY || e.mozMovementY || 0;
 
@@ -134,7 +108,6 @@ function getMouseMovement(e) {
 		camera.yRot += movementX * camera.sensitivity;
 		camera.xRot -= movementY * camera.sensitivity;
 	}
-	
 }
 
 function cubeSDF(p, pos, r) {
@@ -188,7 +161,6 @@ function playerController(camForward, camRight) {
 }
 
 function processInput() {
-
 	let camForward = [Math.sin(camera.yRot) * Math.cos(camera.xRot), Math.sin(camera.xRot), Math.cos(camera.yRot) * Math.cos(camera.xRot)];
 	let camRight = [Math.sin(camera.yRot + (Math.PI * 0.5)), 0, Math.cos(camera.yRot + (Math.PI * 0.5))];
 
